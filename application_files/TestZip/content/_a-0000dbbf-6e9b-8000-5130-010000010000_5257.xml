@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>BW_Application_Action_Form</name>
+        <uuid>_a-0000dbbf-6e9b-8000-5130-010000010000_5257</uuid>
+        <description>Mock-Up -- Bridgewater
+</description>
+        <parentUuid>_a-0000dbbe-5b0d-8000-5130-010000010000_4917</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+
+  local!addOrUpdate,
+  local!deprecate,
+  local!selectedApplication,
+
+#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Manage Applications&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_radioButtonField&quot;(
+          label: &quot;Add New Application or Update an Existing Application&quot;,
+          choiceLabels: {&quot;New&quot;, &quot;Update&quot;},
+          choiceValues: {true,false},
+          value: local!addOrUpdate,
+          saveInto: local!addOrUpdate,
+          choiceLayout: &quot;COMPACT&quot;
+        )
+      },
+      secondColumnContents: {
+        if(#&quot;_a-0000d62a-67b3-8000-da6f-010000010000_950&quot;(local!addOrUpdate),{},if(local!addOrUpdate,{},
+        {
+          #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+            label: &quot;Choose Application to Update&quot;,
+            labelPosition: &quot;ABOVE&quot;,
+            placeholderLabel: &quot;--- Select ---&quot;,
+            choiceLabels: {&quot;Recruiting - Candidate Pack&quot;},
+            choiceValues: {1},
+            value: local!selectedApplication,
+            saveInto: local!selectedApplication,
+            required: true,
+            validations: {}
+            ),/* Dropdown */
+             
+          #&quot;SYSTEM_SYSRULES_radioButtonField&quot;(
+            label: &quot;Deprecate Current Version of Application?&quot;,
+            instructions: &quot;Deprecated applications will be migrated to Application History.&quot;,
+            choiceLabels: {&quot;Yes&quot;, &quot;No&quot;},
+            choiceValues: {true,false},
+            value: local!deprecate,
+            saveInto: local!deprecate,
+            required: true,
+            choiceLayout: &quot;COMPACT&quot;
+          )
+        }
+        ))
+      }
+    ),
+    if(#&quot;_a-0000d62a-67b3-8000-da6f-010000010000_950&quot;(local!addOrUpdate),{},if(local!addOrUpdate,
+      {
+    
+      #&quot;_a-0000dbbf-6e9b-8000-5130-010000010000_5280&quot;(ri!application, ri!capability, ri!reasonCapability)  
+      
+      },
+      {
+        if(#&quot;_a-0000d62a-67b3-8000-da6f-010000010000_950&quot;(local!selectedApplication),
+          {},
+          #&quot;_a-0000dbbe-5b0d-8000-5130-010000010000_4961&quot;(ri!application, ri!capability, local!selectedApplication)
+        )
+      }
+      
+    ))
+  },
+
+buttons: #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(
+   primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+         label: &quot;Submit&quot;,
+         style: &quot;PRIMARY&quot;,
+         saveInto: {}
+         )
+   },
+   secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+         label: &quot;Cancel&quot;,
+         style: &quot;NORMAL&quot;,
+         value: true,
+         skipValidation: true
+         )
+   }
+   )/*Buttons*/
+   
+   
+      
+   
+      
+   
+
+
+
+)
+
+)</definition>
+        <namedTypedValue>
+            <name>application</name>
+            <type>
+                <name>MOCK_applicationCdt</name>
+                <namespace>urn:com:appian:types</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>capability</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>reasonCapability</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">{
+ appName: &quot;Reference Library&quot;,
+ appCategory: &quot;Library&quot;,
+ appDescription: &quot;Provide a reference library for desing processes.&quot;,
+ appDepartment: &quot;Business Development&quot;,
+ appCapabilities: &quot;&quot;,
+ downloadLink: &quot;Please look in this folder for more information. (C:\folder.thing.zip) &quot;,
+ version:&quot;3.56.0&quot;,
+ releaseDate: &quot;12/04/15&quot;,
+ businessRP: &quot;John Doe&quot;,
+ techRP: &quot;Jane Doe&quot;,
+ securityClass: &quot;Internal Only&quot;,
+ appDocumentation: &quot;C:\folder\application\documentation.zip&quot;
+}</a:value>
+                <a:nameRef>application</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>capability</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>reasonCapability</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

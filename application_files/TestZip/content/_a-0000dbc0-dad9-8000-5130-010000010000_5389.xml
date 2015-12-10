@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>BW_recordList</name>
+        <uuid>_a-0000dbc0-dad9-8000-5130-010000010000_5389</uuid>
+        <description></description>
+        <parentUuid>_a-0000dbbe-5b0d-8000-5130-010000010000_4918</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>todatasubset(apply(&#xD;
+ 'type!{urn:com:appian:types}MOCK_applicationCdt'(&#xD;
+   appId:_,appName:_,appCategory:_,&#xD;
+   appDescription:_,appDepartment:_,&#xD;
+   appCapabilities:_,downloadLink:_,&#xD;
+   version:_,releaseDate:_,&#xD;
+   businessRP:_,techRP:_,&#xD;
+   securityClass:_,appDocumentation:_),&#xD;
+ merge(&#xD;
+&#xD;
+ {1, 2, 3, 4, 5},&#xD;
+ {&quot;LDAP Sync&quot;, &#xD;
+  &quot;Counterparty and New Instrument On Boarding&quot;,&#xD;
+  &quot;Employee Services Help&quot;,&#xD;
+  &quot;Lifecycle of a Search&quot;,&#xD;
+  &quot;Multi Media Request&quot;&#xD;
+  &#xD;
+  &#xD;
+  },&#xD;
+ {&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;},&#xD;
+ {&quot;Nightly process to provision Appian users from AD.&quot;,&#xD;
+  &quot;Cross departmental machine used to manage and coordinate the changes to a variety of portfolio management systems.&quot;,&#xD;
+  &quot;Centralized directory for employees to log HR and Finance related inquiries.&quot;,&#xD;
+  &quot;Recruiting application that standardizes the candidate selection process.&quot;,&#xD;
+  &quot;Facilitates the request for multi media through delivery of the materials by the specialist.&quot;&#xD;
+ &#xD;
+ },&#xD;
+ {&quot;Business Development&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;},&#xD;
+ {&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;},&#xD;
+ &#xD;
+ {&quot;Please look in this folder for more information. (C:\folder.thing.zip) &quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;},&#xD;
+ {&quot;3.56.0&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;},&#xD;
+ &#xD;
+ {&quot;12/04/2015&quot;,&#xD;
+ &quot;07/28/2013&quot;, &#xD;
+ &quot;09/18/2014&quot;,&#xD;
+ &quot;05/01/2014&quot;,&#xD;
+ &quot;11/11/2015&quot;&#xD;
+ &#xD;
+ },&#xD;
+ &#xD;
+ {&quot;John Doe&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;},&#xD;
+ &#xD;
+ {&quot;Jane Doe&quot;,&#xD;
+  &quot;Jane Doe&quot;,&#xD;
+  &quot;John Doe&quot;,&#xD;
+  &quot;Jane Doe&quot;&#xD;
+  &#xD;
+ },&#xD;
+ {&quot;Internal Only&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;},&#xD;
+ {&quot;C:\folder\application\documentation.zip&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;}&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+)))</definition>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+    </typedValue>
+</contentHaul>

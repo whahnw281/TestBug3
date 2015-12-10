@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>BW_Application_Record_Summary_MockUp</name>
+        <uuid>_a-0000dbbe-5b0d-8000-5130-010000010000_4897</uuid>
+        <description>Mock-Up -- Bridgewater
+</description>
+        <parentUuid>_a-0000dbbe-5b0d-8000-5130-010000010000_4917</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  
+
+
+#&quot;SYSTEM_SYSRULES_dashboardLayout&quot;(
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;&quot;,
+      firstColumnContents: {
+        
+      },
+      secondColumnContents: {
+
+      }
+    ), /* Blank */ 
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Download Link&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;Download link: (http://forum.bwater.com/LDAP Sync)&quot;,
+          readOnly: true
+        ), /*Download Link*/
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Description&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;Nightly process to provision Appian users from AD.&quot;,
+          readOnly: true
+        ), /* Description*/
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Documentation&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;Documentation link: (http://forum.bwater.com/LDAP Sync)&quot;,
+          readOnly: true
+        ), /* Description*/
+          
+          
+      },
+      secondColumnContents: {
+        #&quot;SYSTEM_SYSRULES_imageField&quot;(
+          label: &quot;Status&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          images: {
+            #&quot;SYSTEM_SYSRULES_documentImage&quot;(#&quot;SYSTEM_SYSRULES_iconIndicator&quot;(&quot;STATUS_OK&quot;))
+          },
+          size: &quot;ICON&quot;), /* Status*/
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Score&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: 7,
+          readOnly: true,
+          validations: {}
+          ), /* Score */
+
+/*        a!imageField(
+          label: &quot;Score&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          images: {
+            a!documentImage(a!iconIndicator(&quot;RATING_POOR&quot;)), 
+            a!documentImage(a!iconIndicator(&quot;RATING_POOR&quot;)),
+            a!documentImage(a!iconIndicator(&quot;RATING_POOR&quot;)),
+          
+          },
+          size: &quot;ICON&quot;), */ /* Score*/
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Security Class&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;Internal Only&quot;,
+          readOnly: true
+        ), /* Security Class*/
+
+          
+      },
+      validations: {},
+      isCollapsabble: false()
+    ), /* Collateral */ 
+                
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;List of Components&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_gridField&quot;(
+          label: &quot;&quot;,
+          instructions: &quot;This application uses the components listed below.&quot;,
+          totalCount: 3,
+          value: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
+            1,-1
+          ),
+          columns: {
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;Name&quot;,
+              field: &quot;LDSAP Sync Tools&quot;,
+              links: {
+                #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+                  label: &quot;LDAP Tools&quot;,
+                  uri: &quot;http://www.google.com&quot;
+                ),
+                #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+                  label: &quot;LDAP Tools&quot;,
+                  uri: &quot;http://www.google.com&quot;
+                ),
+                #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+                  label: &quot;LDAP Tools&quot;,
+                  uri: &quot;http://www.google.com&quot;
+                )
+              },
+              data: {&quot;LDAP Tools&quot;,&quot;Active Directory&quot;, &quot;SSL Certificate&quot;}
+            ),
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;Description&quot;,
+              field: &quot;thing 2&quot;,
+              data: {&quot;Smart service plug-in for integrating with directory service. &quot;, &quot;Vanilla install of Microsoft Active directory.&quot;, &quot;Certificate used to encrypt LDAP queries.&quot;}
+            ),
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;Last Modified&quot;,
+              field: &quot;date&quot;,
+              data: {today(), today()-100, today()-735}
+            ),
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;TechRP&quot;,
+              field: &quot;Yes&quot;,
+              links: {
+                #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+                  label: &quot;&quot;,
+                  uri: &quot;http://www.google.com&quot;
+                ),
+                #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+                  label: &quot;&quot;,
+                  uri: &quot;http://www.google.com&quot;
+                ),
+                #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+                  label: &quot;&quot;,
+                  uri: &quot;http://www.google.com&quot;
+                )
+
+              },
+              data: {&quot;Joe Campbell&quot;, &quot;Jill Cantreau&quot;, &quot;Jack Campone&quot;}
+            ),
+
+          }
+        ),
+
+      },
+      secondColumnContents: {
+      }
+    ), /*List of Components*/ 
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Application Details&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Category&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;Plugin&quot;,
+          readOnly: true
+        ), /* Category */
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Capabilities&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;Performant; Secure; Fault Tolerant&quot;,
+          readOnly: true,
+          validations: {}
+          ), /* Capabilities */
+        #&quot;SYSTEM_SYSRULES_linkField&quot;(
+          label: &quot;Business RP&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+            uri: &quot;http://wwww.google.com&quot;,
+            label: &quot;John Doe&quot;
+            ),
+          readOnly: true
+        ), /*Bus RP */
+        #&quot;SYSTEM_SYSRULES_linkField&quot;(
+          label: &quot;Technical RP&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+            uri: &quot;http://wwww.google.com&quot;,
+            label: &quot;Jane Doe&quot;
+            ),
+          readOnly: true
+        ), /*Tech RP */
+          
+
+      },
+      secondColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Departments&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;Research.&quot;,
+          readOnly: true
+        ), /* Departments */
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Version&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;7.9.0.5&quot;,
+          readOnly: true
+        ), /*Version*/
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Release Date&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: today()-14,
+          readOnly: true
+        ), /*Release Date*/
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Last Modified&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: today()-7,
+          readOnly: true
+        ), /*Modified Date*/
+        
+
+      }
+    ), /* Application Details*/
+    
+  },
+  secondColumnContents: {}
+)
+
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+    </typedValue>
+</contentHaul>

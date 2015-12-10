@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>BW_Application_Action_New_MockUp</name>
+        <uuid>_a-0000dbbf-6e9b-8000-5130-010000010000_5280</uuid>
+        <description>Mock-Up -- Bridgewater
+</description>
+        <parentUuid>_a-0000dbbe-5b0d-8000-5130-010000010000_4917</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!newCapability: true,
+  local!capabilityLabels: {&quot;Fault Tolerance&quot;,&quot;Durability&quot;,&quot;Offline&quot;,&quot;LDAP Compatible&quot;,&quot;Other&quot;}, 
+  local!capabilityIdentifiers: {&quot;Fault Tolerance&quot;,&quot;Durability&quot;,&quot;Offline&quot;,&quot;LDAP Compatible&quot;,&quot;Other&quot;},
+  local!pickedCapabilities,
+  local!status,
+  local!capabilities,
+
+  local!items: {
+    {item: &quot;LDAP Tools&quot;, qty: &quot;Smart service plug-in for integrating with directory service. &quot;, unitPrice: &quot;9/23/2015&quot;},
+    {item: &quot;Item 2&quot;, qty: 2, unitPrice: 20}
+  },
+  local!selected: tointeger({}),
+  local!businessRP,
+  local!techRP,
+
+{
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Application Details&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Name&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;Recruiting - Candidate Pack&quot;,
+          saveInto: ri!application.appName,
+          readOnly: false
+        ), /* Name */
+        #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+          label: &quot;Department&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          placeholderLabel: &quot;--- Select ---&quot;,
+          choiceValues: #&quot;_a-0000dbbe-5b0d-8000-5130-010000010000_4941&quot;,
+          choiceLabels: #&quot;_a-0000dbbe-5b0d-8000-5130-010000010000_4941&quot;,
+          value: &quot;Human Resources&quot;,
+          saveInto: ri!application.appDepartment,
+          readOnly: false
+        ), /* Department */
+        #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+          label: &quot;Category&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          placeholderLabel: &quot;--- Select ---&quot;,
+          choiceValues: #&quot;_a-0000dbbe-5b0d-8000-5130-010000010000_4957&quot;,
+          choiceLabels: #&quot;_a-0000dbbe-5b0d-8000-5130-010000010000_4957&quot;,
+          value: &quot;Library&quot;,
+          saveInto: ri!application.appCategory,
+          readOnly: false
+        ), /* Category */
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Security Class&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;Internal Only&quot;,
+          saveInto: ri!application.securityClass,
+          readOnly: false
+        ), /* Security Class */
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Download Link&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;C;\applications\rcp.zip&quot;,
+          saveInto: ri!application.downloadLink,
+          readOnly: false
+        ), /* Download Link*/
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Documentation&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          saveInto: ri!application.appDocumentation,
+          value: &quot;C:\applications\rcp\documentation.zip&quot;,
+          readOnly: false
+        ), /* Documentation*/
+        #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+          label: &quot;Description&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          saveInto: ri!application.appDescription,
+          value: &quot;Recruiting application which assembles a full candidate pack from several underlying systems.&quot;,
+          height: &quot;MEDIUM&quot;,
+          readOnly: false
+        ), /* Description*/
+
+      },
+      secondColumnContents: {
+        #&quot;SYSTEM_SYSRULES_radioButtonField&quot;(
+          label: &quot;Status&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          choiceLayout: &quot;COMPACT&quot;,
+          choiceLabels: {&quot;Active&quot;,&quot;In Development&quot;},
+          choiceValues: {true, false},
+          value: true,
+          saveInto: local!status,
+          readOnly: false
+        ), /*Status*/
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Version&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;1.0&quot;,
+          saveInto: ri!application.version,
+          readOnly: false
+        ), /*Version*/
+        #&quot;SYSTEM_SYSRULES_dateField&quot;(
+          label: &quot;Release Date&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot;2/26/2015&quot;,
+          saveInto: ri!application.releaseDate,
+          readOnly: false
+        ), /* Release Date*/
+        #&quot;SYSTEM_SYSRULES_pickerFieldUsers&quot;(
+          label: &quot;Business RP&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: local!businessRP,
+          saveInto: local!businessRP
+        ), /*Bus RP */
+        #&quot;SYSTEM_SYSRULES_pickerFieldUsers&quot;(
+          label: &quot;Technical RP&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: local!techRP,
+          saveInto: local!techRP,
+          readOnly: false
+        ), /*Tech RP */
+        #&quot;SYSTEM_SYSRULES_multipleDropdownField&quot;(
+          label: &quot;Capabilities&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          instructions: &quot;To select multiple capabilities, hold ctrl&quot;,
+          choiceLabels: #&quot;_a-0000dbc6-0e4d-8000-5130-010000010000_5452&quot;,
+          choiceValues: #&quot;_a-0000dbc6-0e4d-8000-5130-010000010000_5452&quot;,
+          value: local!capabilities, 
+          saveInto: local!capabilities
+        )
+
+
+      }
+    ), /* Application Details */ 
+
+
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;&quot;,
+      firstColumnContents: {
+/*        a!pickerFieldCustom(
+          label: &quot;Capabilities&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          instructions: &quot;Select up to three capabilities. If 'other,' additonal infromation will be requested.&quot; ,
+          maxSelections: cons!BW_MAX_SELECTION_CAPABILITIES,
+          suggestFunction: rule!BW_ucArrayPickerFilter(filter: _, labels: local!capabilityLabels, identifiers: local!capabilityIdentifiers),
+          selectedLabels: if(
+            or(isnull(local!pickedCapabilities), count(local!pickedCapabilities) = 0),
+            null,
+            apply(
+              rule!BW_ucArrayPickerGetLabelForIdentifier(identifier: _, labels: local!capabilityLabels, identifiers: local!capabilityIdentifiers),
+              local!pickedCapabilities
+            )
+          ),
+          value: local!pickedCapabilities,
+          saveInto: local!pickedCapabilities
+        ), */ /* Capabilities Picker*/
+
+          
+
+          
+      },
+      secondColumnContents: {
+/*        a!textField(
+          label: &quot;Selected Data&quot;,
+          value: local!pickedCapabilities,
+          readOnly: true
+        ), Testing Capabilities Picker */
+ /*       a!radioButtonField(
+          label: &quot;New Capability?&quot;,
+          choiceLabels: {&quot;Yes&quot;, &quot;No&quot;},
+          choiceValues: {true, false},
+          value: local!newCapability,
+          saveInto: local!newCapability,
+          choiceLayout: &quot;COMPACT&quot;
+        ), */ /* New Capability*/
+        if(true,
+          {
+/*            a!textField(
+              label: &quot;New Capability&quot;,
+              labelPosition: &quot;ADJACENT&quot;,
+              value: ri!capability,
+              saveInto: ri!capability,
+              readOnly: false
+            ), */
+/*            a!textField(
+              label: &quot;Reason for New Capability&quot;,
+              labelPosition: &quot;ADJACENT&quot;,
+              value: ri!reasonCapability,
+              saveInto: ri!reasonCapability,
+              validations: {}
+              ), */ /* Text Field */
+              
+            
+          },{}), /* New Capability */
+          
+      },
+      validations: {},
+      isCollapsabble: false()
+    ), /* Deprecated Capabilities */ 
+
+
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Related Components&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_gridLayout&quot;(
+        label: &quot;&quot;,
+        instructions: &quot;Select Components that are involved in this application.&quot; /* &amp; local!selected */ ,
+        headerCells: {
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(label: &quot;Name&quot;),
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(label: &quot;Description&quot;, align: &quot;LEFT&quot;),
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(label: &quot;Last Modified&quot;, align: &quot;RIGHT&quot;),
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(label: &quot;Tech RP&quot;, align: &quot;LEFT&quot;)
+        },
+        rows: {
+          #&quot;SYSTEM_SYSRULES_gridRowLayout&quot;(
+            id: 1,
+            contents: {
+              #&quot;SYSTEM_SYSRULES_linkField&quot;(
+                links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+                  label: &quot;JSON.Utils Plug-in&quot;,
+                  url: &quot;https://google.com&quot;
+                ),
+                readOnly: true
+              ),
+              #&quot;SYSTEM_SYSRULES_textField&quot;(
+                value: &quot;Plugin providing utility functions to use in Appian for parsin/creating JSON.&quot;,
+                readOnly: true,
+                align: &quot;LEFT&quot;
+              ),
+              #&quot;SYSTEM_SYSRULES_textField&quot;(
+                value: &quot;9/23/2015&quot;,
+                readOnly: true,
+                align: &quot;RIGHT&quot;
+              ),
+              #&quot;SYSTEM_SYSRULES_linkField&quot;(
+                links: #&quot;SYSTEM_SYSRULES_userRecordLink&quot;(
+                  label: &quot;John Doe&quot;,
+                  user: &quot;john.doe&quot;,  
+                  view: &quot;summary&quot;
+                ),
+                readOnly: true,
+                align: &quot;LEFT&quot;
+                
+              )
+            }
+          ),
+          #&quot;SYSTEM_SYSRULES_gridRowLayout&quot;(
+            id: 2,
+            contents: {
+              #&quot;SYSTEM_SYSRULES_linkField&quot;(
+                links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+                  label: &quot;Execute Stored Procedure Plug-in&quot;,
+                  url: &quot;https://google.com&quot;
+                ),
+                readOnly: true
+              ),
+              #&quot;SYSTEM_SYSRULES_textField&quot;(
+                value: &quot;This Smart Service allows a stored procedure to be executed while mapping data in an out. Result sets are returned as CDTs.&quot;,
+                readOnly: true,
+                align: &quot;LEFT&quot;
+              ),
+              #&quot;SYSTEM_SYSRULES_textField&quot;(
+                value: &quot;6/15/2015&quot;,
+                readOnly: true,
+                align: &quot;RIGHT&quot;
+              ),
+              #&quot;SYSTEM_SYSRULES_linkField&quot;(
+                links: #&quot;SYSTEM_SYSRULES_userRecordLink&quot;(
+                  label: &quot;John Doe&quot;,
+                  user: &quot;john.doe&quot;,  
+                  view: &quot;summary&quot;
+                ),
+                readOnly: true,
+                align: &quot;LEFT&quot;
+                
+              )
+            }
+          )
+        },
+        selectable: true,
+        selectionValue: local!selected,
+        selectionSaveInto: local!selected
+      )
+
+      },
+      secondColumnContents: {
+      }
+    ), /*Related Components*/ 
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Related Design Patterns&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_gridLayout&quot;(
+        label: &quot;&quot;,
+        instructions: &quot;Select Related Designs that are involved in this application. Do not include Design Patterns that are associated with Components.&quot; /* &amp; local!selected */ ,
+        headerCells: {
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(label: &quot;Name&quot;),
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(label: &quot;Description&quot;, align: &quot;LEFT&quot;),
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(label: &quot;Download Path&quot;, align: &quot;RIGHT&quot;),
+          #&quot;SYSTEM_SYSRULES_gridLayoutHeaderCell&quot;(label: &quot;Tech RP&quot;, align: &quot;LEFT&quot;)
+        },
+        rows: {
+          #&quot;SYSTEM_SYSRULES_gridRowLayout&quot;(
+            id: 1,
+            contents: {
+              #&quot;SYSTEM_SYSRULES_linkField&quot;(
+                links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(
+                  label: &quot;Unsigned SSL Certificate Usage &quot;,
+                  url: &quot;https://google.com&quot;
+                ),
+                readOnly: true
+              ),
+              #&quot;SYSTEM_SYSRULES_textField&quot;(
+                value: &quot;Import an untrusted cert for Java keystore.&quot;,
+                readOnly: true,
+                align: &quot;LEFT&quot;
+              ),
+              #&quot;SYSTEM_SYSRULES_textField&quot;(
+                value: &quot;http://bw.com/patterns/LDAP1&quot;,
+                align: &quot;LEFT&quot;,
+                readOnly: true
+              ),
+              #&quot;SYSTEM_SYSRULES_linkField&quot;(
+                links: #&quot;SYSTEM_SYSRULES_userRecordLink&quot;(
+                  label: &quot;Jane Doe&quot;,
+                  user: &quot;jane.doe&quot;,  
+                  view: &quot;summary&quot;
+                ),
+                readOnly: true,
+                align: &quot;LEFT&quot;
+                
+              )
+            }
+          ),
+        },
+        selectable: true
+        
+      )
+
+      },
+      secondColumnContents: {
+      }
+    ), /*Related Pattern Designs*/ 
+
+}               
+)</definition>
+        <namedTypedValue>
+            <name>application</name>
+            <type>
+                <name>MOCK_applicationCdt</name>
+                <namespace>urn:com:appian:types</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>capability</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>reasonCapability</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">{
+ appName: &quot;Reference Library&quot;,
+ appCategory: &quot;Library&quot;,
+ appDescription: &quot;Provide a reference library for desing processes.&quot;,
+ appDepartment: &quot;Business Development&quot;,
+ appCapabilities: &quot;&quot;,
+ downloadLink: &quot;Please look in this folder for more information. (C:\folder.thing.zip) &quot;,
+ version:&quot;3.56.0&quot;,
+ releaseDate: &quot;12/04/15&quot;,
+ businessRP: &quot;John Doe&quot;,
+ techRP: &quot;Jane Doe&quot;,
+ securityClass: &quot;Internal Only&quot;,
+ appDocumentation: &quot;C:\folder\application\documentation.zip&quot;
+}</a:value>
+                <a:nameRef>application</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>capability</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>reasonCapability</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

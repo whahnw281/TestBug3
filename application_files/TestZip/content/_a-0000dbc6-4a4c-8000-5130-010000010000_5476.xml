@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>BW_Application_Record_Related_Defects_Enhancements_MockUp</name>
+        <uuid>_a-0000dbc6-4a4c-8000-5130-010000010000_5476</uuid>
+        <description>A related view to the Application Record summary for defects and enhancements</description>
+        <parentUuid>_a-0000dbbe-5b0d-8000-5130-010000010000_4917</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(&#xD;
+  local!defectData:todatasubset(apply(&#xD;
+  'type!{urn:com:appian:types:BW}MOCK_displayCdt'(text1:_, text2:_, text3:_),&#xD;
+  merge(&#xD;
+    {&quot;GPA in Baseball Card - error&quot;, &quot;Sort by Name Broken&quot;},&#xD;
+    {&quot;The output of the GPA on the baseball cards is not the same as the information provided.&quot;,&quot;When I sort by their overall and then try to sort by name again, the grid sorts by date modified instead.&quot;},&#xD;
+	  {&quot;John Doe&quot;, &quot;Jane Doe&quot;}&#xD;
+&#xD;
+))&#xD;
+),&#xD;
+  local!enhancementData:todatasubset(apply(&#xD;
+  'type!{urn:com:appian:types:BW}MOCK_displayCdt'(text1:_, text2:_, text3:_),&#xD;
+  merge(&#xD;
+    {&quot;Compatibility with TalentWise&quot;, &quot;Printable Formats&quot;},&#xD;
+    {&quot;Automate the transfer of candidate information to TalentWise for rapid security background checks.&quot;,&quot;Allow users to print images of online baseball cards of candidates in various formats.&quot;},&#xD;
+	  {&quot;John Doe&quot;, &quot;Jane Doe&quot;}&#xD;
+&#xD;
+))&#xD;
+),&#xD;
+&#xD;
+#&quot;SYSTEM_SYSRULES_dashboardLayout&quot;(&#xD;
+&#xD;
+  firstColumnContents: {&#xD;
+    &#xD;
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(&#xD;
+      label:&quot;Defects for Recruiting - Candidate Pack&quot;,&#xD;
+      firstColumnContents:{&#xD;
+      #&quot;SYSTEM_SYSRULES_gridField&quot;(&#xD;
+            label:&quot;&quot;,&#xD;
+            instructions:&quot;Click on the magnifying glass to see more details about the defect.&quot;,&#xD;
+            totalCount:local!defectData.totalCount,&#xD;
+            columns:{&#xD;
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&quot;Title&quot;, &quot;text1&quot;, local!defectData.data.text1, &quot;LEFT&quot;),&#xD;
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&quot;Description&quot;, &quot;text2&quot;, local!defectData.data.text2, &quot;LEFT&quot;),&#xD;
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&#xD;
+                label: &quot;Tech RP&quot;, &#xD;
+                field: &quot;text4&quot;, &#xD;
+                data: local!defectData.data.text3, &#xD;
+                alignment: &quot;RIGHT&quot;,&#xD;
+                links: {#&quot;SYSTEM_SYSRULES_safeLink&quot;(&quot;Label&quot;,&quot;https://google.com&quot;),#&quot;SYSTEM_SYSRULES_safeLink&quot;(&quot;Label&quot;,&quot;https://google.com&quot;)}&#xD;
+              ),&#xD;
+              #&quot;SYSTEM_SYSRULES_gridImageColumn&quot;(&quot;View&quot;,&quot;text1&quot;,&#xD;
+                {#&quot;SYSTEM_SYSRULES_documentImage&quot;(4150),#&quot;SYSTEM_SYSRULES_documentImage&quot;(4150)},&quot;ICON&quot;),&#xD;
+              &#xD;
+            },&#xD;
+            value: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(1,-1)&#xD;
+          )&#xD;
+    }),&#xD;
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(&#xD;
+      label: &quot;&quot;,&#xD;
+      firstColumnContents: {&#xD;
+        #&quot;SYSTEM_SYSRULES_richTextDisplayField&quot;(&#xD;
+          labelPosition: &quot;COLLAPSED&quot;,&#xD;
+          value: #&quot;SYSTEM_SYSRULES_richTextItem&quot;(&#xD;
+            text: &quot;GPA in Baseball Card - error&quot;,&#xD;
+            style: &quot;HEADER_SMALL&quot;&#xD;
+          )&#xD;
+        ),&#xD;
+        #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
+          label: &quot;Criticality&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          value: &quot;High&quot;,&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+        #&quot;SYSTEM_SYSRULES_linkField&quot;(&#xD;
+          label: &quot;Requestor&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(&quot;Werner Hahn&quot;, &quot;http://www.google.com&quot;),&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+        #&quot;SYSTEM_SYSRULES_linkField&quot;(&#xD;
+          label: &quot;Business RP&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(&quot;John Doe&quot;, &quot;http://www.google.com&quot;),&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+          &#xD;
+          &#xD;
+        &#xD;
+        &#xD;
+      },&#xD;
+      secondColumnContents: {&#xD;
+        #&quot;SYSTEM_SYSRULES_richTextDisplayField&quot;(&#xD;
+          labelPosition: &quot;COLLAPSED&quot;,&#xD;
+          value: #&quot;SYSTEM_SYSRULES_richTextItem&quot;(&#xD;
+            text: &quot;&quot;,&#xD;
+            style: &quot;HEADER_SMALL&quot;&#xD;
+          )&#xD;
+        ),&#xD;
+        #&quot;SYSTEM_SYSRULES_dateField&quot;(&#xD;
+          label: &quot;Date of Request&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          value: &quot;08/14/2015&quot;,&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+        #&quot;SYSTEM_SYSRULES_dateField&quot;(&#xD;
+          label: &quot;Last Modified&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          value: &quot;08/17/2015&quot;,&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+        #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
+          label: &quot;Steps to Reproduce&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          value: &quot;1) Update Applicatin record with GPAs.&quot; &amp; char(10) &amp; &quot;2) View Applicant's Baseball Card.&quot;,&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+&#xD;
+&#xD;
+      },&#xD;
+      validations: {},&#xD;
+      isCollapsabble: false()&#xD;
+      ),&#xD;
+      &#xD;
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(&#xD;
+      label: &quot;Enhancements for Recruiting - Candidate Pack&quot;,&#xD;
+      firstColumnContents: {&#xD;
+      #&quot;SYSTEM_SYSRULES_gridField&quot;(&#xD;
+            label:&quot;&quot;,&#xD;
+            instructions:&quot;Click on the magnifying glass to see more details about the enhancement.&quot;,&#xD;
+            totalCount:local!enhancementData.totalCount,&#xD;
+            columns:{&#xD;
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&quot;Title&quot;, &quot;text1&quot;, local!enhancementData.data.text1, &quot;LEFT&quot;),&#xD;
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&quot;Description&quot;, &quot;text2&quot;, local!enhancementData.data.text2, &quot;LEFT&quot;),&#xD;
+              #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&#xD;
+                label: &quot;Tech RP&quot;, &#xD;
+                field: &quot;text4&quot;, &#xD;
+                data: local!defectData.data.text3, &#xD;
+                alignment: &quot;RIGHT&quot;,&#xD;
+                links: {#&quot;SYSTEM_SYSRULES_safeLink&quot;(&quot;Label&quot;,&quot;https://google.com&quot;),#&quot;SYSTEM_SYSRULES_safeLink&quot;(&quot;Label&quot;,&quot;https://google.com&quot;)}&#xD;
+              ),&#xD;
+              #&quot;SYSTEM_SYSRULES_gridImageColumn&quot;(&quot;View&quot;,&quot;text1&quot;,&#xD;
+                {#&quot;SYSTEM_SYSRULES_documentImage&quot;(4150),#&quot;SYSTEM_SYSRULES_documentImage&quot;(4150)},&quot;ICON&quot;),&#xD;
+              &#xD;
+            },&#xD;
+            value: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(1,-1)&#xD;
+          )&#xD;
+        /* This grid is not configured to page or sort */&#xD;
+&#xD;
+      },&#xD;
+      secondColumnContents: {}&#xD;
+    ),&#xD;
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(&#xD;
+      label: &quot;&quot;,&#xD;
+      firstColumnContents: {&#xD;
+        #&quot;SYSTEM_SYSRULES_richTextDisplayField&quot;(&#xD;
+          labelPosition: &quot;COLLAPSED&quot;,&#xD;
+          value: #&quot;SYSTEM_SYSRULES_richTextItem&quot;(&#xD;
+            text: &quot;Compatibility with TalentWise&quot;,&#xD;
+            style: &quot;HEADER_SMALL&quot;&#xD;
+          )&#xD;
+        ),&#xD;
+        #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
+          label: &quot;Status&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          value: &quot;Testing&quot;,&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+        #&quot;SYSTEM_SYSRULES_linkField&quot;(&#xD;
+          label: &quot;Requestor&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(&quot;Werner Hahn&quot;, &quot;http://www.google.com&quot;),&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+        #&quot;SYSTEM_SYSRULES_linkField&quot;(&#xD;
+          label: &quot;Business RP&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          links: #&quot;SYSTEM_SYSRULES_safeLink&quot;(&quot;John Doe&quot;, &quot;http://www.google.com&quot;),&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+&#xD;
+      },&#xD;
+      secondColumnContents: {&#xD;
+&#xD;
+        #&quot;SYSTEM_SYSRULES_richTextDisplayField&quot;(&#xD;
+          labelPosition: &quot;COLLAPSED&quot;,&#xD;
+          value: #&quot;SYSTEM_SYSRULES_richTextItem&quot;(&#xD;
+            text: &quot;&quot;,&#xD;
+            style: &quot;HEADER_SMALL&quot;&#xD;
+          )&#xD;
+        ),&#xD;
+        #&quot;SYSTEM_SYSRULES_dateField&quot;(&#xD;
+          label: &quot;Date of Request&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          value: &quot;01/20/2014&quot;,&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+        #&quot;SYSTEM_SYSRULES_dateField&quot;(&#xD;
+          label: &quot;Last Modified&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          value: &quot;09/20/2015&quot;,&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+        #&quot;SYSTEM_SYSRULES_textField&quot;(&#xD;
+          label: &quot;Latest Notes&quot;,&#xD;
+          labelPosition: &quot;ADJACENT&quot;,&#xD;
+          value: &quot;Recruiting - Candidate Pack applicatin is running into server errors from TalentWise. We are in communication to see if we can work out the issues. We may need to push back release. &quot;,&#xD;
+          readOnly: true,&#xD;
+          validations: {}&#xD;
+        ), /* Text Field */&#xD;
+&#xD;
+&#xD;
+      },&#xD;
+      validations: {},&#xD;
+      isCollapsabble: false()&#xD;
+    ),&#xD;
+    &#xD;
+  },&#xD;
+  secondColumnContents: {}&#xD;
+)&#xD;
+&#xD;
+)&#xD;
+&#xD;
+</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

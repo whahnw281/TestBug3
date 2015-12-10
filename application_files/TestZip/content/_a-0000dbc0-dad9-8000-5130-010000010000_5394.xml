@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>BW_applicationRecordFacets</name>
+        <uuid>_a-0000dbc0-dad9-8000-5130-010000010000_5394</uuid>
+        <description>User filters for the application records database. </description>
+        <parentUuid>_a-0000dbbe-5b0d-8000-5130-010000010000_4918</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+#&quot;SYSTEM_SYSRULES_facet&quot;(
+  name: &quot;Name&quot;,
+  options: 
+    {
+      #&quot;SYSTEM_SYSRULES_facetOption&quot;(
+      id: ri!appId,
+      name: &quot;A-H&quot;,
+      filter: #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+        field: ri!appId, 
+        operator: &quot;&lt;&gt;&quot;,
+        value: &quot;5&quot;
+      ),
+      dataCount: 0
+    ),
+      #&quot;SYSTEM_SYSRULES_facetOption&quot;(
+      id: ri!appId,
+      name: &quot;I-Q&quot;,
+      filter: #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+        field: ri!appId, 
+        operator: &quot;&lt;&gt;&quot;,
+        value: &quot;5&quot;
+      ),
+      dataCount: 1
+    ),
+      #&quot;SYSTEM_SYSRULES_facetOption&quot;(
+      id: ri!appId,
+      name: &quot;R-Z&quot;,
+      filter: #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+        field: ri!appId, 
+        operator: &quot;&lt;&gt;&quot;,
+        value: &quot;5&quot;
+      ),
+      dataCount: 0
+    )
+    }
+    
+),
+#&quot;SYSTEM_SYSRULES_facet&quot;(
+  name: &quot;Category&quot;,
+  options: 
+    {
+      #&quot;SYSTEM_SYSRULES_facetOption&quot;(
+      id: ri!appId,
+      name: &quot;Plugin&quot;,
+      filter: #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+        field: ri!appId, 
+        operator: &quot;&lt;&gt;&quot;,
+        value: &quot;5&quot;
+      ),
+      dataCount: 0
+    ),
+      #&quot;SYSTEM_SYSRULES_facetOption&quot;(
+      id: ri!appId,
+      name: &quot;Smart Services&quot;,
+      filter: #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+        field: ri!appId, 
+        operator: &quot;&lt;&gt;&quot;,
+        value: &quot;5&quot;
+      ),
+      dataCount: 1
+    ),
+      #&quot;SYSTEM_SYSRULES_facetOption&quot;(
+      id: ri!appId,
+      name: &quot;Expression Functions&quot;,
+      filter: #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+        field: ri!appId, 
+        operator: &quot;&lt;&gt;&quot;,
+        value: &quot;5&quot;
+      ),
+      dataCount: 0
+    )
+    }
+    
+),
+#&quot;SYSTEM_SYSRULES_facet&quot;(
+  name: &quot;Status&quot;,
+  options: 
+    {
+      #&quot;SYSTEM_SYSRULES_facetOption&quot;(
+      id: ri!appId,
+      name: &quot;In Progress&quot;,
+      filter: #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+        field: ri!appId, 
+        operator: &quot;&lt;&gt;&quot;,
+        value: &quot;5&quot;
+      ),
+      dataCount: 0
+    ),
+      #&quot;SYSTEM_SYSRULES_facetOption&quot;(
+      id: ri!appId,
+      name: &quot;Released&quot;,
+      filter: #&quot;SYSTEM_SYSRULES_queryFilter&quot;(
+        field: ri!appId, 
+        operator: &quot;&lt;&gt;&quot;,
+        value: &quot;5&quot;
+      ),
+      dataCount: 1
+    )
+    }
+    
+)
+
+
+}</definition>
+        <namedTypedValue>
+            <name>appId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>appId</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

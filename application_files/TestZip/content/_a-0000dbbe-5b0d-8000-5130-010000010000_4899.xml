@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>BW_Application_Record_AuditHistory_MockUp</name>
+        <uuid>_a-0000dbbe-5b0d-8000-5130-010000010000_4899</uuid>
+        <description>Mock-Up -- Bridgewater
+</description>
+        <parentUuid>_a-0000dbbe-5b0d-8000-5130-010000010000_4917</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!selectedVersions,
+  local!gridSelection: #&quot;SYSTEM_SYSRULES_gridSelection&quot;(
+    selected: local!selectedVersions,
+    pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
+      startIndex: 1,
+      batchSize: -1
+    )
+  ),
+#&quot;SYSTEM_SYSRULES_dashboardLayout&quot;(
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;&quot;,
+      firstColumnContents: {
+        
+      },
+      secondColumnContents: {
+
+      }
+    ), /* Blank */ 
+
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_gridField&quot;(
+          label: &quot;&quot;,
+          totalCount: 3,
+          columns: {
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;Version&quot;,
+              field: &quot;&quot;,
+              data: {&quot;3.56.0&quot;,&quot;3.40.0&quot;, &quot;2.50.0&quot;},
+              alignment: &quot;RIGHT&quot;
+            ),
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;Document Location&quot;,
+              field: &quot;&quot;,
+              data: {
+                &quot;C:/reference_library/history/09_09_2015.zip&quot;, 
+                &quot;C:/reference_library/history/09_02_2015.zip&quot;,
+                &quot;C:/reference_library/history/08_26_2015.zip&quot;
+              }
+            ),
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;Deprecation Date&quot;,
+              field: &quot;&quot;,
+              data: {today()-14, today()-21, today()-28},
+              alignment: &quot;RIGHT&quot;
+            ),
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;TechRP&quot;,
+              field: &quot;Yes&quot;,
+              data: {&quot;Bill Braski&quot;, &quot;Carl Marks&quot;, &quot;Sam Hu&quot;}
+            )
+
+          },
+          value: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
+            1,-1
+          ),
+          saveInto: local!gridSelection,
+          selection: true
+          
+        )
+
+      },
+      secondColumnContents: {
+      }
+    ), /*List of Components*/ 
+
+  },
+  secondColumnContents: {}
+))</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+    </typedValue>
+</contentHaul>
